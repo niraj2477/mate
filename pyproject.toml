@@ -1,0 +1,40 @@
+[project]
+name = "mate"
+version = "0.1.0"
+description = ""
+authors = [{ name = "Niraj Gautam", email = "nirajgautam196@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.poetry]
+packages = [
+  { include = "mate" }
+]
+
+[tool.ruff]
+line-length = 140
+indent-width = 4
+target-version = "py310"
+
+[tool.ruff.format]
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.ruff.lint]
+ignore = ["E501"]
+
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+typer = "0.15.4"
+pathlib = "1.0.1"
+
+[tool.poetry.scripts]
+mate = "mate:mate"
