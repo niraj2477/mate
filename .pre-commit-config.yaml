@@ -1,0 +1,32 @@
+exclude: 'node_modules|.git'
+fail_fast: false
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    hooks:
+      - id: trailing-whitespace
+        files: "next_pms.*"
+        exclude: ".*json$|.*txt$|.*csv|.*md|.*svg"
+      - id: check-yaml
+      - id: check-merge-conflict
+      - id: check-ast
+      - id: check-json
+      - id: check-toml
+      - id: check-yaml
+      - id: debug-statements
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.2.0
+    hooks:
+      - id: ruff
+        args: ["--fix"]
+        name: "Python linter"
+
+      - id: ruff
+        args: ["--select=T20","--exit-zero"]
+        name: "Print Statement Warning"
+        stages: [pre-commit]
+
+      - id: ruff-format
+        name: "Python formatter"
